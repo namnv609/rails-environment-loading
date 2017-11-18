@@ -21,3 +21,8 @@ group :development do
 end
 
 gem "dotenv-rails"
+gem "capistrano"
+gem "capistrano-rails"
+gem "capistrano3-unicorn"
+gem "unicorn"
+gem "capistrano-rvm"
