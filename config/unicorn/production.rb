@@ -1,3 +1,5 @@
+require "dotenv"
+
 app_path = "/var/www/html/environment_loading/current"
 working_directory app_path
 
@@ -14,6 +16,7 @@ listen "#{app_path}/tmp/sockets/unicorn.sock", backlog: 64
 
 before_exec do |_|
   ENV["BUNDLE_GEMFILE"] = File.join(app_path, "Gemfile")
+  ENV.update Dotenv::Environment.new ".env"
 end
 
 before_fork do |server, worker|
